@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700" font-family="'Segoe UI', Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f8f9fa" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a2e">Hangman Game — UML Class Diagram</text>
+
+  <!-- ===================== Main ===================== -->
+  <g id="Main">
+    <rect x="30" y="65" width="160" height="80" rx="6" fill="#ffffff" stroke="#3a86ff" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="30" y="65" width="160" height="30" rx="6" fill="#3a86ff"/>
+    <rect x="30" y="85" width="160" height="10" fill="#3a86ff"/>
+    <text x="110" y="85" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">«class» Main</text>
+    <!-- Divider -->
+    <line x1="30" y1="95" x2="190" y2="95" stroke="#3a86ff" stroke-width="1.5"/>
+    <!-- Fields (none) -->
+    <text x="38" y="111" font-size="11" fill="#555">— (no fields)</text>
+    <!-- Divider -->
+    <line x1="30" y1="118" x2="190" y2="118" stroke="#ddd" stroke-width="1"/>
+    <!-- Methods -->
+    <text x="38" y="134" font-size="11" fill="#222">+ main(args: String[]): void</text>
+  </g>
+
+  <!-- ===================== GameController ===================== -->
+  <g id="GameController">
+    <rect x="30" y="220" width="220" height="120" rx="6" fill="#ffffff" stroke="#3a86ff" stroke-width="2"/>
+    <rect x="30" y="220" width="220" height="30" rx="6" fill="#3a86ff"/>
+    <rect x="30" y="240" width="220" height="10" fill="#3a86ff"/>
+    <text x="140" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">«class» GameController</text>
+    <line x1="30" y1="250" x2="250" y2="250" stroke="#3a86ff" stroke-width="1.5"/>
+    <!-- Fields -->
+    <text x="38" y="266" font-size="11" fill="#555">- scanner: Scanner</text>
+    <text x="38" y="280" font-size="11" fill="#555">- wordBank: WordBank</text>
+    <line x1="30" y1="288" x2="250" y2="288" stroke="#ddd" stroke-width="1"/>
+    <!-- Methods -->
+    <text x="38" y="304" font-size="11" fill="#222">+ GameController()</text>
+    <text x="38" y="320" font-size="11" fill="#222">+ start(): void</text>
+    <text x="38" y="336" font-size="11" fill="#222">  «creates» GameSession</text>
+  </g>
+
+  <!-- ===================== WordBank ===================== -->
+  <g id="WordBank">
+    <rect x="320" y="220" width="225" height="120" rx="6" fill="#ffffff" stroke="#8338ec" stroke-width="2"/>
+    <rect x="320" y="220" width="225" height="30" rx="6" fill="#8338ec"/>
+    <rect x="320" y="240" width="225" height="10" fill="#8338ec"/>
+    <text x="432" y="240" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">«class» WordBank</text>
+    <line x1="320" y1="250" x2="545" y2="250" stroke="#8338ec" stroke-width="1.5"/>
+    <text x="328" y="266" font-size="11" fill="#555">- words: String[]</text>
+    <text x="328" y="280" font-size="11" fill="#555">- random: Random</text>
+    <line x1="320" y1="288" x2="545" y2="288" stroke="#ddd" stroke-width="1"/>
+    <text x="328" y="304" font-size="11" fill="#222">+ WordBank()</text>
+    <text x="328" y="320" font-size="11" fill="#222">+ getRandomWord(): String</text>
+  </g>
+
+  <!-- ===================== GameSession ===================== -->
+  <g id="GameSession">
+    <rect x="30" y="440" width="260" height="175" rx="6" fill="#ffffff" stroke="#ff006e" stroke-width="2"/>
+    <rect x="30" y="440" width="260" height="30" rx="6" fill="#ff006e"/>
+    <rect x="30" y="460" width="260" height="10" fill="#ff006e"/>
+    <text x="160" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">«class» GameSession</text>
+    <line x1="30" y1="470" x2="290" y2="470" stroke="#ff006e" stroke-width="1.5"/>
+    <text x="38" y="486" font-size="11" fill="#555">- targetWord: String</text>
+    <text x="38" y="500" font-size="11" fill="#555">- currentGuessState: char[]</text>
+    <text x="38" y="514" font-size="11" fill="#555">- triesLeft: int</text>
+    <text x="38" y="528" font-size="11" fill="#555">- guessedChars: ArrayList&lt;Character&gt;</text>
+    <line x1="30" y1="536" x2="290" y2="536" stroke="#ddd" stroke-width="1"/>
+    <text x="38" y="552" font-size="11" fill="#222">+ GameSession(word: String)</text>
+    <text x="38" y="566" font-size="11" fill="#222">+ play(scanner: Scanner): void</text>
+    <text x="38" y="580" font-size="11" fill="#999">  «calls» HangmanArt.printHangman()</text>
+    <text x="38" y="596" font-size="11" fill="#999">  «calls» HangmanArt.printWelcomeBanner()</text>
+  </g>
+
+  <!-- ===================== HangmanArt ===================== -->
+  <g id="HangmanArt">
+    <rect x="580" y="440" width="280" height="120" rx="6" fill="#ffffff" stroke="#fb5607" stroke-width="2"/>
+    <rect x="580" y="440" width="280" height="30" rx="6" fill="#fb5607"/>
+    <rect x="580" y="460" width="280" height="10" fill="#fb5607"/>
+    <text x="720" y="440" text-anchor="middle" font-size="7" fill="transparent">x</text>
+    <text x="720" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">«utility class» HangmanArt</text>
+    <line x1="580" y1="470" x2="860" y2="470" stroke="#fb5607" stroke-width="1.5"/>
+    <text x="588" y="486" font-size="11" fill="#777">— (no instance fields)</text>
+    <line x1="580" y1="492" x2="860" y2="492" stroke="#ddd" stroke-width="1"/>
+    <text x="588" y="508" font-size="11" fill="#222">+ «static» printWelcomeBanner(name: String): void</text>
+    <text x="588" y="524" font-size="11" fill="#222">+ «static» printHangman(triesLeft: int): void</text>
+  </g>
+
+  <!-- ===================== RELATIONSHIPS ===================== -->
+
+  <!-- Main -> GameController (dependency: creates) -->
+  <!-- Arrow from Main bottom to GameController top -->
+  <line x1="110" y1="145" x2="110" y2="220" stroke="#3a86ff" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
+  <text x="115" y="185" font-size="10" fill="#3a86ff">«creates»</text>
+
+  <!-- GameController -> WordBank (association: uses) -->
+  <line x1="250" y1="265" x2="320" y2="265" stroke="#8338ec" stroke-width="1.8" marker-end="url(#arrow-purple)"/>
+  <text x="262" y="258" font-size="10" fill="#8338ec">uses</text>
+  <!-- Composition diamond on GameController side -->
+  <polygon points="250,265 258,260 266,265 258,270" fill="#8338ec"/>
+
+  <!-- GameController -> GameSession (creates) -->
+  <line x1="160" y1="340" x2="160" y2="440" stroke="#ff006e" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-pink)"/>
+  <text x="165" y="395" font-size="10" fill="#ff006e">«creates»</text>
+
+  <!-- GameController -> HangmanArt (dependency) -->
+  <!-- From GameController right side across to HangmanArt top -->
+  <polyline points="250,270 560,270 560,455 580,455" fill="none" stroke="#fb5607" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-orange)"/>
+  <text x="565" y="262" font-size="10" fill="#fb5607">«uses»</text>
+
+  <!-- GameSession -> HangmanArt (dependency) -->
+  <line x1="290" y1="510" x2="580" y2="510" stroke="#fb5607" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arrow-orange)"/>
+  <text x="390" y="503" font-size="10" fill="#fb5607">«calls static»</text>
+
+  <!-- ===================== ARROWHEAD MARKERS ===================== -->
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3a86ff"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8338ec"/>
+    </marker>
+    <marker id="arrow-pink" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff006e"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#fb5607"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== LEGEND ===================== -->
+  <rect x="600" y="230" width="260" height="155" rx="6" fill="#ffffff" stroke="#999" stroke-width="1.2"/>
+  <text x="730" y="252" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Legend</text>
+  <line x1="610" y1="258" x2="850" y2="258" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Solid arrow -->
+  <line x1="620" y1="274" x2="670" y2="274" stroke="#555" stroke-width="1.8" marker-end="url(#arrow-legend)"/>
+  <text x="680" y="278" font-size="11" fill="#333">Association (uses / has-a)</text>
+
+  <!-- Dashed arrow -->
+  <line x1="620" y1="300" x2="670" y2="300" stroke="#555" stroke-width="1.8" stroke-dasharray="5,3" marker-end="url(#arrow-legend)"/>
+  <text x="680" y="304" font-size="11" fill="#333">Dependency (creates / calls)</text>
+
+  <!-- Composition diamond -->
+  <polygon points="620,326 628,321 636,326 628,331" fill="#555"/>
+  <line x1="636" y1="326" x2="670" y2="326" stroke="#555" stroke-width="1.8" marker-end="url(#arrow-legend)"/>
+  <text x="680" y="330" font-size="11" fill="#333">Composition</text>
+
+  <!-- Color key -->
+  <rect x="620" y="345" width="12" height="12" rx="2" fill="#3a86ff"/>
+  <text x="638" y="355" font-size="11" fill="#333">Main / GameController</text>
+
+  <rect x="620" y="362" width="12" height="12" rx="2" fill="#8338ec"/>
+  <text x="638" y="372" font-size="11" fill="#333">WordBank</text>
+
+  <rect x="740" y="345" width="12" height="12" rx="2" fill="#ff006e"/>
+  <text x="758" y="355" font-size="11" fill="#333">GameSession</text>
+
+  <rect x="740" y="362" width="12" height="12" rx="2" fill="#fb5607"/>
+  <text x="758" y="372" font-size="11" fill="#333">HangmanArt</text>
+
+  <defs>
+    <marker id="arrow-legend" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+</svg>
